@@ -4,16 +4,18 @@ pipeline {
             image 'node:10.15.0-alpine' 
             args '-p 3333:3333' 
         }
-        docker {
-            image 'postgres:9.6' 
-            args '-p 5432:5432' 
-        }
     }
     environment {
         CI = 'true'
     }
     stages {
         stage('Build') { 
+            agent {
+                docker {
+                    image 'postgres:9.6' 
+                    args '-p 5432:5432' 
+                }
+            }
             steps {
                 sh 'npm install' 
                 sh 'npm start' 
