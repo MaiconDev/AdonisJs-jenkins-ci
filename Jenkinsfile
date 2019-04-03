@@ -17,7 +17,7 @@ pipeline {
         
         stage('Test API Blueprint') {    
             steps {
-                sh 'npm -g install dredd@stable'
+                sh 'sudo npm -g install dredd@stable'
                 sh 'dredd --reporter junit --output blueprint.xml'
             }
         }
