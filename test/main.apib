@@ -1,0 +1,92 @@
+FORMAT: 1A
+HOST: http://localhost:3333
+
+# Group Schools
+Esta seção agrupa recursos de publicação do *painel.alfaebetosolucoes.org.br*.
+
+## School [/schools/{id}]
+Um único objeto School. O recurso School é o recurso central na API do Painel.
+
+O recurso School possui os seguintes atributos:
+
++ id
++ name
++ created_at
++ updated_at
+
+Os estados *id*, *created_at* e *updated_at* são atribuídos pela API Painel no momento da criação.
+
++ Parameters
+    + id: 2 (number) - O id da Escola.
+
++ Model
+    + Headers (application/json; charset=utf-8)
+
+    + Body 
+
+        ```json
+        {
+            "id": 3,
+            "name": "E. E. Prof. Ormy Araujo de Amaral",
+            "created_at": "2019-03-21 20:16:43",
+            "updated_at": "2019-03-21 20:16:43"
+        }
+        ```
+
+### Show a School [GET]
+Retorna uma escola especifica.
+
++ Response 200
+
+    [School][]
+
+### Delete a School [DELETE]
+Exclui uma Escola. O usuário atual deve ser o mesmo usuário que criou a postagem. isto
+retorna a postagem excluída no sucesso.
+
++ Response 204
+
+## Schools Collection [/schools]
+Uma coleção de escolas.
+
++ Model (application/json; charset=utf-8)
+    + Headers
+
+
+    + Body
+
+        ```json
+        [
+            {
+                "id": 42,
+                "name": "E. E. Prof. Ormy Araujo de Amaral",
+                "created_at": "2019-03-21 20:16:43",
+                "updated_at": "2019-03-21 20:16:43"
+            },
+            {
+                "id": 43,
+                "name": "E. E. Prof. Ormy Araujo de Amaral",
+                "created_at": "2019-03-21 20:16:43",
+                "updated_at": "2019-03-21 20:16:43"
+            }
+        ]
+        ```
+
+### Create a School [POST]
+Cria um novo objeto de Escola. Menções e hashtags serão analisadas do post
+texto, como vai descobrir URLs ...
+
++ Request
+
+    [School][]
+
++ Response 201
+
+    [School][]
+
+### Show all Schools [GET]
+Visualizar todas as Escolas.
+
++ Response 200
+
+    [Schools Collection][]
