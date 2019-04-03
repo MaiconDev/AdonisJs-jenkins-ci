@@ -17,8 +17,14 @@ pipeline {
         
         stage('Test API Blueprint') {    
             steps {
-                sh 'npm install dredd'
+                sh 'npm -g install dredd@stable'
                 sh 'dredd --reporter junit --output blueprint.xml'
+            }
+        }
+
+        stage('Get JUnit Results') {
+            steps {
+                junit 'blueprint.xml'
             }
         }
     }
