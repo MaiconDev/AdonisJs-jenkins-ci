@@ -15,13 +15,10 @@ pipeline {
             }
         }
         
-        stage('Test API Blueprint') {
-            if(isUnix()) {
-                wrap([$class: 'AnsiColorBuildWrapper', 'colorMapName': 'XTerm']) {
-                sh 'dredd --config ./api-blueprint/dredd.yml --reporter junit --output blueprint.xml'
-                }
-            } else {
-                bat 'dredd --config ./api-blueprint/dredd.yml --reporter junit --output blueprint.xml'
+        stage('Test API Blueprint') {    
+            steps {
+                sh 'npm install -g dredd'
+                sh 'dredd --reporter junit --output blueprint.xml'
             }
         }
     }
