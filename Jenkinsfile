@@ -1,15 +1,14 @@
 pipeline {
-    agent none
+    agent {
+        docker {
+            image 'node:10.15.0-alpine' 
+            args '-p 3333:3333' 
+        }
+    }
     environment {
         CI = 'true'
     }
     stages {
-        stage('Docker UP') { 
-            steps {
-                sh 'docker-compose up' 
-            }
-        }
-
         stage('Build') { 
             steps {
                 sh 'npm install' 
