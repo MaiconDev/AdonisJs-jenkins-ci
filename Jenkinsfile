@@ -19,7 +19,7 @@ pipeline {
         stage('Test API Blueprint') {    
             steps {
                 sh 'npm install dredd@stable'
-                sh 'node_modules/dredd/bin/dredd --reporter junit --output blueprint.xml'
+                sh 'node_modules/dredd/bin/dredd'
             }
         }
 

@@ -9,8 +9,8 @@ init: false
 custom: {}
 names: false
 only: []
-reporter: []
-output: []
+reporter: ['junit']
+output: ['blueprint.xml']
 header: []
 sorted: false
 user: null
