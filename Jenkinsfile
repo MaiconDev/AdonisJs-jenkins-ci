@@ -22,11 +22,5 @@ pipeline {
                 sh 'node_modules/dredd/bin/dredd'
             }
         }
-
-        stage('Get JUnit Results') {
-            steps {
-                junit 'blueprint.xml'
-            }
-        }
     }
 }

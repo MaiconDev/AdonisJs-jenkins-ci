@@ -9,7 +9,7 @@ init: false
 custom: {}
 names: false
 only: []
-reporter: ['junit']
+reporter: [junit, apiary]
 output: ['blueprint.xml']
 header: []
 sorted: false
