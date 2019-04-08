@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nohup node server.js &",
-    "test": "node ace test"
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "NODE_ENV=test jest",
+    "posttest": "NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "keywords": [
     "adonisjs",
